@@ -1,0 +1,336 @@
+:root {
+  --tk-sidebar-primary: #5AC559;
+  --bs-primary: #5AC559;
+  --bs-primary-rgb: 90, 197, 89;
+  --bs-pagination-active-bg: #5AC559;
+  --bs-pagination-active-border-color: #5AC559;
+  --bs-pagination-active-color: #ffffff;
+}
+
+.base-color {
+  color: #5AC559 !important;
+}
+
+/* Global font */
+body {
+  font-family: "Kantumruy Pro", sans-serif !important;
+}
+
+/* Base before element for sidebar indicators */
+.startbar .startbar-menu .navbar-nav .nav-item .nav-link::before {
+  border-color: transparent !important;
+  background-color: transparent !important;
+}
+
+/* Active/Hover indicator and text */
+.startbar .startbar-menu .navbar-nav .nav-item .nav-link:hover,
+.startbar .startbar-menu .navbar-nav .nav-item .nav-link.active {
+  color: var(--tk-sidebar-primary) !important;
+}
+
+.startbar .startbar-menu .navbar-nav .nav-item .nav-link:hover::before,
+.startbar .startbar-menu .navbar-nav .nav-item .nav-link.active::before {
+  border-color: var(--tk-sidebar-primary) !important;
+  background-color: var(--tk-sidebar-primary) !important;
+}
+
+/* Expanded group state */
+.startbar .startbar-menu .navbar-nav .nav-item .nav-link[data-bs-toggle="collapse"][aria-expanded="true"] {
+  background-color: rgba(90, 197, 89, 0.08) !important;
+}
+
+.startbar .startbar-menu .navbar-nav .nav-item .nav-link[data-bs-toggle="collapse"][aria-expanded="true"]:after,
+.startbar .startbar-menu .navbar-nav .nav-item .nav-link[data-bs-toggle="collapse"][aria-expanded="true"] i,
+.startbar .startbar-menu .navbar-nav .nav-item .nav-link[data-bs-toggle="collapse"][aria-expanded="true"] span {
+  color: var(--tk-sidebar-primary) !important;
+}
+
+.startbar .startbar-menu .navbar-nav .nav-item .nav-link[data-bs-toggle="collapse"][aria-expanded="true"]::before {
+  border-color: var(--tk-sidebar-primary) !important;
+  background-color: var(--tk-sidebar-primary) !important;
+}
+
+/* Label borders */
+.label-border .border_left:before,
+.label-border .border_right:before {
+  border-bottom-color: rgba(90, 197, 89, 0.2) !important;
+}
+
+.label-border .border_left:after,
+.label-border .border_right:after {
+  border-bottom-color: rgba(90, 197, 89, 0.5) !important;
+}
+
+/* Buttons */
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary:disabled {
+  background-color: var(--bs-primary) !important;
+  border-color: var(--bs-primary) !important;
+  color: #fff !important;
+}
+
+.btn-outline-primary {
+  color: var(--bs-primary) !important;
+  border-color: var(--bs-primary) !important;
+}
+
+.btn-outline-primary:hover,
+.btn-outline-primary:focus,
+.btn-outline-primary:active {
+  background-color: var(--bs-primary) !important;
+  border-color: var(--bs-primary) !important;
+  color: #fff !important;
+}
+
+/* Treat success buttons as primary */
+.btn-success,
+.btn-success:hover,
+.btn-success:focus,
+.btn-success:active,
+.btn-success:disabled {
+  background-color: var(--bs-primary) !important;
+  border-color: var(--bs-primary) !important;
+  color: #fff !important;
+}
+
+.btn-outline-success {
+  color: var(--bs-primary) !important;
+  border-color: var(--bs-primary) !important;
+}
+
+.btn-outline-success:hover,
+.btn-outline-success:focus,
+.btn-outline-success:active {
+  background-color: var(--bs-primary) !important;
+  border-color: var(--bs-primary) !important;
+  color: #fff !important;
+}
+
+/* SweetAlert2 buttons */
+.swal2-popup .swal2-styled.swal2-confirm,
+.swal2-popup .swal2-styled.swal2-deny {
+  background-color: var(--bs-primary) !important;
+  border-color: var(--bs-primary) !important;
+}
+
+/* Pagination */
+.pagination .page-item.active .page-link,
+.page-item.active .page-link {
+  background-color: var(--bs-primary) !important;
+  border-color: var(--bs-primary) !important;
+  color: #fff !important;
+}
+
+.pagination .page-link:hover {
+  color: var(--bs-primary);
+}
+
+.datatable-pagination .datatable-active a,
+.datatable-pagination .datatable-active button,
+.datatable-pagination .datatable-active a:hover,
+.datatable-pagination .datatable-active a:focus,
+.dataTable-pagination .active a,
+.dataTable-pagination .active a:hover,
+.dataTable-pagination .active a:focus {
+  background-color: var(--bs-primary) !important;
+  border-color: var(--bs-primary) !important;
+  color: #fff !important;
+}
+
+/* Sidebar icons */
+.startbar .startbar-menu .navbar-nav .nav-item .nav-link:hover i,
+.startbar .startbar-menu .navbar-nav .nav-item .nav-link.active i {
+  color: var(--tk-sidebar-primary) !important;
+}
+
+/* Expanded group icons */
+.startbar .startbar-menu .navbar-nav .nav-item .nav-link[data-bs-toggle="collapse"][aria-expanded="true"] i {
+  color: var(--tk-sidebar-primary) !important;
+}
+
+.list-group-item.active-custom {
+  background-color: #5AC559 !important;
+  color: #fff !important;
+}
+
+/* Focused inputs */
+input.form-control:focus,
+textarea.form-control:focus,
+select.form-control:focus {
+  border-color: var(--bs-primary) !important;
+  box-shadow: 0 0 0 0.25rem rgba(90, 197, 89, 0.25);
+  outline: none;
+}
+
+/* Placeholder color */
+input::placeholder,
+textarea::placeholder {
+  color: rgba(90, 197, 89, 0.5);
+}
+
+/* Disabled inputs */
+input.form-control:disabled,
+textarea.form-control:disabled,
+select.form-control:disabled {
+  background-color: #fff;
+  border-color: rgba(90, 197, 89, 0.2);
+}
+
+/* Checkboxes & switches */
+.form-check-input:checked,
+.form-switch .form-check-input:checked {
+  background-color: var(--bs-primary);
+  border-color: var(--bs-primary);
+}
+
+.center-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+
+/* ================================
+        Theme Cards
+================================ */
+.theme-card {
+    transition: all 0.25s ease !important;
+    border: 1px solid #e5e7eb !important;
+    border-radius: 12px !important;
+}
+.theme-card:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: 0 10px 25px rgba(0,0,0,.08) !important;
+} 
+.active-theme {
+    border: 2px solid #5AC559 !important; /* primary color */
+    box-shadow: 0 0 0 3px rgba(90,197,89,.2) !important; /* primary color shadow */
+} 
+.theme-preview {
+    height: 150px !important;
+    background-size: cover !important;
+    background-position: center !important;
+    border-radius: 8px !important;
+    border: 1px dashed #dee2e6 !important;
+} 
+
+/* ================================
+        Settings Panel
+================================ */
+.settings-pro {
+    background: #fff !important;
+    border-radius: 8px !important;
+    border: 1px solid #eee !important;
+    padding: 18px 12px !important;
+    height: 100% !important;
+}
+
+.settings-pro-header {
+    padding: 0 10px 14px !important;
+    border-bottom: 1px solid #eee !important;
+    margin-bottom: 12px !important;
+}
+
+.settings-pro-header h5 {
+    font-weight: 600 !important;
+    margin: 0 !important;
+    color: #222 !important;
+}
+
+.settings-pro-section {
+    margin-bottom: 16px !important;
+}
+
+.section-title {
+    font-size: 11px !important;
+    font-weight: 600 !important;
+    color: #999 !important;
+    text-transform: uppercase !important;
+    margin: 8px 12px !important;
+    letter-spacing: 0.06em !important;
+}
+
+/* ================================
+        Pro Items (Hover & Active)
+================================ */
+.pro-item {
+    display: flex !important;
+    align-items: center !important;
+    gap: 14px !important;
+    padding: 12px 14px !important;
+    border-radius: 14px !important;
+    border: none !important;
+    background: transparent !important; /* no bg */
+    width: 100% !important;
+    color: #444 !important;
+    font-weight: 500 !important;
+    cursor: pointer !important;
+    transition: color 0.2s ease !important;
+}
+
+.pro-item i {
+    font-size: 15px !important;
+    width: 18px !important;
+    color: #aaa !important;
+    transition: color 0.2s ease !important;
+}
+
+/* Hover: transparent bg, primary color text/icon */
+.pro-item:hover {
+    background: transparent !important;
+    color: #5AC559 !important;
+}
+
+.pro-item:hover i {
+    color: #5AC559 !important;
+}
+
+/* Active: transparent bg, primary color text/icon */
+.pro-item.active {
+    background: transparent !important;
+    color: #5AC559 !important;
+    font-weight: 600 !important;
+}
+
+.pro-item.active i {
+    color: #5AC559 !important;
+}
+
+/* ================================
+        Dark Theme Settings Panel
+================================ */
+html[data-bs-theme="dark"] .settings-pro {
+    background: #1f1f1f !important;
+    border: 1px solid #444 !important;
+}
+
+html[data-bs-theme="dark"] .settings-pro-header h5 {
+    color: #ffffff !important;
+}
+
+html[data-bs-theme="dark"] .section-title {
+    color: #ccc !important;
+}
+
+html[data-bs-theme="dark"] .pro-item {
+    color: #ddd !important;
+}
+
+html[data-bs-theme="dark"] .pro-item i {
+    color: #aaa !important;
+}
+
+html[data-bs-theme="dark"] .pro-item:hover,
+html[data-bs-theme="dark"] .pro-item.active {
+    color: #5AC559 !important;
+}
+
+html[data-bs-theme="dark"] .pro-item:hover i,
+html[data-bs-theme="dark"] .pro-item.active i {
+    color: #5AC559 !important;
+}

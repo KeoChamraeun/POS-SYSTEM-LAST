@@ -1,0 +1,21 @@
+{
+    "khmer": {
+        "normal": "khmer_normal_c0fe2365b04beefcd9c674d3eccd8051"
+    },
+    "open sans": {
+        "600_italic": "\/Users\/sophayin\/Desktop\/Project\/Agency_project\/agency_management_system\/public\/fonts\/open_sans_600_italic_431d8de62ddc5485c06a14e0821c683b",
+        "italic": "open_sans_italic_431d8de62ddc5485c06a14e0821c683b"
+    },
+    "firefly": {
+        "normal": "firefly_normal_e1ae199cb6fc733d89891009f2f306df"
+    },
+    "khmeros": {
+        "normal": "khmeros_normal_e1ae199cb6fc733d89891009f2f306df"
+    },
+    "khmer os": {
+        "normal": "khmer_os_normal_e1ae199cb6fc733d89891009f2f306df"
+    },
+    "khmeros, siemreap": {
+        "normal": "khmeros__siemreap_normal_f80aafe1b95bde1b632d575e9f7dfbe0"
+    }
+}
