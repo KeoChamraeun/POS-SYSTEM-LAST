@@ -58,17 +58,6 @@
                                         @error('role_id') <div class="small text-danger mt-1">{{ __($message) }}</div> @enderror
                                     </div>
 
-                                    <div class="col-md-6 mt-3">
-                                        <label class="form-label fw-semibold">{{ __('Company') }} <span class="text-danger">*</span></label>
-                                        <select class="form-select @error('companyId') is-invalid @enderror" wire:model.live="companyId">
-                                            <option value="">{{ __('Choose...') }}</option>
-                                            @foreach($companies as $company)
-                                                <option value="{{ $company->id }}">{{ $company->name }}</option>
-                                            @endforeach
-                                        </select>
-                                        @error('companyId') <div class="small text-danger mt-1">{{ __($message) }}</div> @enderror
-                                    </div>
-
                                     <div class="col-md-12 mt-3">
                                         <label class="form-label fw-semibold">{{ __('Phone') }}</label>
                                         <input type="text" class="form-control @error('phone') is-invalid @enderror" wire:model="phone" placeholder="{{__('Enter ')}}{{ __('Phone') }}">

@@ -202,8 +202,7 @@ class ManageSetting extends Component
         $systemLogs = $systemLogs->paginate($this->limit);
 
         $exchangeRate = ExchangeRate::orderBy('id', 'desc');
-        $exchangeRate = ExchangeRate::orderBy('id', 'desc')
-        ->paginate($this->limit);
+        $exchangeRate = ExchangeRate::orderBy('id', 'desc');
 
         return view('livewire.setting.manage-setting', [
             'systemLogs' => $systemLogs,  'exchangeRate' => $exchangeRate,

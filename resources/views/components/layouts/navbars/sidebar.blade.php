@@ -19,15 +19,14 @@
 
 <aside class="startbar d-print-none">
     <div class="brand">
-        {{-- <a wire:navigate href="{{ route('dashboard') }}" class="logo">
+        <a wire:navigate href="{{ route('dashboard') }}" class="logo">
             <span>
                 <img src="{{ asset('assets/images/logo-sm.png') }}" alt="logo-small" class="logo-sm">
             </span>
             <span>
                 <img src="{{ asset('assets/images/logo.png') }}" alt="logo-large" class="logo-lg logo-light" height="50">
-                <img src="{{ asset('assets/images/logo.png') }}" alt="logo-large" class="logo-lg logo-dark" height="50">
             </span>
-        </a> --}}
+        </a>
     </div>
 
     <div class="startbar-menu">
@@ -79,7 +78,7 @@
                                 <ul class="nav flex-column">
                                     @foreach($children as $child)
                                         <li class="nav-item">
-                                            <a wire:navigate
+                                            <a 
                                                href="{{ url($child->slug) }}"
                                                class="nav-link {{ request()->is(trim($child->slug, '/') . '/*') || request()->is(trim($child->slug, '/')) ? 'active' : '' }}">
                                                 <i class="bi bi-circle"></i>

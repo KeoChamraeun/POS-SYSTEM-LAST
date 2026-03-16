@@ -20,15 +20,6 @@
                     <label class="form-label text-muted mb-1">{{ __('Search') }}</label>
                     <input type="search" class="form-control" wire:model.live="search" placeholder="{{ __('Search...') }}">
                 </div>
-                <div class="col-md-3">
-                    <label class="form-label text-muted mb-1">{{ __('Company') }}</label>
-                    <select class="form-select" wire:model.live="companyId">
-                        <option value="">{{ __('All company') }}</option>
-                        @foreach($companies as $company)
-                            <option value="{{ $company->id }}">{{ $company->name }}</option>
-                        @endforeach
-                    </select>
-                </div>
             </div>
             <div class="center-div">
                 <div wire:loading wire:target="search, companyId"
@@ -85,7 +76,6 @@
                                     <td class="text-start">
                                         {{ $user->created_at->format('d M Y') }}
                                     </td> 
-                                    <td class="text-start">{{$user->companies->name??''}}</td>
                                     <td class="text-start">
                                         <button type="button" class="btn btn-outline-{{$user->active ? 'success' : 'danger'}} btn-sm px-3 py-1" wire:click="updateActive({{ $user->id }})">
                                             {{$user->active ? __('Active') : __('Inactive')}}

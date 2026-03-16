@@ -7,7 +7,7 @@
     <meta name="description" content="{{ env('APP_NAME') }}">
     <link rel="apple-touch-icon" sizes="76x76" href="{{ url('assets/images/logo-sm.png') }}">
     <link rel="icon" type="image/jpg" href="{{ url('assets/images/logo-sm.png') }}">
-    <title>{{ $title ?? env('APP_NAME') }}</title>
+    <title>{{ 'RAEUN POS' ?? env('APP_NAME') }}</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">

@@ -2,7 +2,6 @@
 
 namespace App\Livewire\Users;
 
-use App\Models\Company;
 use App\Models\User;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -10,30 +9,30 @@ use Livewire\WithPagination;
 class ListUser extends Component
 {
     use WithPagination;
+
     protected $listeners = ['refresh_user' => 'render'];
+    protected string $paginationTheme = 'bootstrap';
 
     public $limit = 10;
     public $search;
-    public $companyId;
-    public $companies;
-    protected string $paginationTheme = 'bootstrap';
 
     public function render()
     {
         $users = User::whereNotIn('id', [1]);
-        $this->companies = Company::all();
+
         if ($this->search) {
-            $users = $users->where('name', 'ilike', '%' . $this->search . '%')
-                ->orWhere('username', 'ilike', '%' . $this->search . '%')
-                ->orWhere('phone', 'ilike', '%' . $this->search . '%');
-        }
-        if ($this->companyId) {
-            $users = $users->where('company_id', $this->companyId);
+            $users = $users->where(function ($query) {
+                $query->where('name', 'ilike', '%' . $this->search . '%')
+                    ->orWhere('username', 'ilike', '%' . $this->search . '%')
+                    ->orWhere('phone', 'ilike', '%' . $this->search . '%');
+            });
         }
 
         $users = $users->paginate($this->limit);
 
-        return view('livewire.users.list-user', ['users' => $users])->title('Fixed Assets | Users');
+        return view('livewire.users.list-user', [
+            'users' => $users
+        ])->title('Fixed Assets | Users');
     }
 
     public function updateActive($id)

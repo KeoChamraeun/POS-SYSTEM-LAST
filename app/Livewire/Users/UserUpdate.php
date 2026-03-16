@@ -20,7 +20,6 @@ class UserUpdate extends Component
     public $first;
     public $last;
     public $companyId;
-    public $companies;
     public $username;
     public $phone;
     public $role_id;
@@ -92,7 +91,6 @@ class UserUpdate extends Component
     public function render()
     {
         $this->roles = Role::whereNotIn('id', [1])->get();
-        $this->companies = Company::all();
 
         return view('livewire.users.user-update');
     }

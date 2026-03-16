@@ -39,13 +39,13 @@
                                 <span>{{ __('System Log') }}</span>
                             </button>
 
-                            @if(Auth::user()->role_id == 1 || Auth::user()->role_id == 2)
+                            {{-- @if(Auth::user()->role_id == 1 || Auth::user()->role_id == 2)
                             <button class="pro-item {{ $index == 3 ? 'active' : '' }}"
                                 wire:click="$set('index', 3)">
                                 <i class="fas fa-cogs"></i>
                                 <span>{{ __('System Config') }}</span>
                             </button>
-                            @endif
+                            @endif --}}
                         </div>
 
                     </aside>

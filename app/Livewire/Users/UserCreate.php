@@ -22,7 +22,6 @@ class UserCreate extends Component
     public $role_id;
     public $roles;
     public $company_id;
-    public $companies;
     public $phone;
     protected $listeners = ['openUserModal' => 'openModal'];
 
@@ -38,7 +37,6 @@ class UserCreate extends Component
         'password' => 'required|string|min:6',
         'confirm_password' => 'required|same:password',
         'role_id' => 'required|exists:roles,id',
-        'company_id' => 'required|exists:companies,id',
         'img' => 'nullable|image|max:2048',
     ];
 
@@ -47,8 +45,6 @@ class UserCreate extends Component
         $this->roles = Role::where('status', 'true')
             ->whereNotIn('id', [1])
             ->get();
-
-        $this->companies = Company::all();
 
         return view('livewire.users.user-create');
     }
