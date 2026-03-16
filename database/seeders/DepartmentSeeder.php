@@ -69,6 +69,29 @@ class DepartmentSeeder extends Seeder
                 ],
             ],
             [
+                'name' => 'POS SYSTEM',
+                'slug' => '/pos-system',
+                'type' => '',
+                'language' => ['lang' => 'kh', 'name' => 'ប្រព័ន្ធ POS'],
+                'description' => 'reporting for management export ',
+                'status' => true,
+                'icon' => '<i class="fas fa-cash-register menu-icon"></i>',
+                'actions' => ['Create Staffs', 'Edit Staffs', 'Delete Staffs'],
+                'children' => [
+                    [
+                        'name' => 'Sale',
+                        'slug' => '/pos-system/sale',
+                        'type' => 'menu',
+                        'language' => ['lang' => 'kh', 'name' => 'ការលក់'],
+                        'description' => 'Operation management',
+                        'status' => true,
+                        'icon' => '<i class="fas fa-shopping-cart menu-icon"></i>',
+                        'actions' => ['Create Staffs', 'Edit Staffs', 'Delete Staffs'],
+                        'children' => [],
+                    ]
+                ],
+            ],
+            [
                 'name' => 'Other Management',
                 'slug' => '/manage',
                 'type' => 'list',
@@ -177,17 +200,6 @@ class DepartmentSeeder extends Seeder
                         'actions' => ['Create Staffs', 'Edit Staffs', 'Delete Staffs'],
                         'children' => [],
                     ],[
-                        'name' => 'Sale',
-                        'slug' => '/manage/sale',
-                        'type' => '',
-                        'language' => ['lang' => 'kh', 'name' => 'ការលក់'],
-                        'description' => 'Operation management',
-                        'status' => true,
-                        'type' => 'menu',
-                        'icon' => '<i class="fas fa-users menu-icon"></i>',
-                        'actions' => ['Create Staffs', 'Edit Staffs', 'Delete Staffs'],
-                        'children' => [],
-                    ],[
                         'name' => 'Payments',
                         'slug' => '/manage/payments',
                         'type' => '',
@@ -222,6 +234,18 @@ class DepartmentSeeder extends Seeder
                 'icon' => '<i class="far fa-file-alt menu-icon"></i>',
                 'actions' => ['Summary of Fixed Assets Depreciation', 'Consolidate of Fixed Assets', 'Purchase of Expendable', 'Tax Law Depreciation Expense Report'],
                 'children' => [
+                    [
+                        'name' => 'Daily Sale Report',
+                        'slug' => '/manage/daily-sale',
+                        'type' => '',
+                        'language' => ['lang' => 'kh', 'name' => 'របាយការណ៍លក់ប្រចាំថ្ងៃ'],
+                        'description' => 'Operation management',
+                        'status' => true,
+                        'type' => 'menu',
+                        'icon' => '<i class="fas fa-users menu-icon"></i>',
+                        'actions' => ['Create Staffs', 'Edit Staffs', 'Delete Staffs'],
+                        'children' => [],
+                    ], 
 
                 ],
             ],

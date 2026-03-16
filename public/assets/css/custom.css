@@ -1,19 +1,33 @@
 :root {
-  --tk-sidebar-primary: #5AC559;
-  --bs-primary: #5AC559;
+  --tk-sidebar-primary: #5ac559;
+  --bs-primary: #5ac559;
   --bs-primary-rgb: 90, 197, 89;
-  --bs-pagination-active-bg: #5AC559;
-  --bs-pagination-active-border-color: #5AC559;
+  --bs-pagination-active-bg: #5ac559;
+  --bs-pagination-active-border-color: #5ac559;
   --bs-pagination-active-color: #ffffff;
 }
 
+@font-face {
+  font-family: "KhmerOS_muollight";
+  src: url("/fonts/KhmerOS_muollight.ttf");
+}
+
+@font-face {
+  /* font-family: "Open Sans", "Hanuman",Arial,Helvetica,sans-serif;
+   */
+  font-family: KhmerOS_siemreap;
+
+  src: url("../../fonts/KhmerOS_battambang.ttf");
+}
+
 .base-color {
-  color: #5AC559 !important;
+  color: #5ac559 !important;
 }
 
 /* Global font */
 body {
-  font-family: "Kantumruy Pro", sans-serif !important;
+  font-family:
+    KhmerOS_siemreap, "Open Sans", Hanuman, Arial, Helvetica, sans-serif !important;
 }
 
 /* Base before element for sidebar indicators */
@@ -35,17 +49,39 @@ body {
 }
 
 /* Expanded group state */
-.startbar .startbar-menu .navbar-nav .nav-item .nav-link[data-bs-toggle="collapse"][aria-expanded="true"] {
+.startbar
+  .startbar-menu
+  .navbar-nav
+  .nav-item
+  .nav-link[data-bs-toggle="collapse"][aria-expanded="true"] {
   background-color: rgba(90, 197, 89, 0.08) !important;
 }
 
-.startbar .startbar-menu .navbar-nav .nav-item .nav-link[data-bs-toggle="collapse"][aria-expanded="true"]:after,
-.startbar .startbar-menu .navbar-nav .nav-item .nav-link[data-bs-toggle="collapse"][aria-expanded="true"] i,
-.startbar .startbar-menu .navbar-nav .nav-item .nav-link[data-bs-toggle="collapse"][aria-expanded="true"] span {
+.startbar
+  .startbar-menu
+  .navbar-nav
+  .nav-item
+  .nav-link[data-bs-toggle="collapse"][aria-expanded="true"]:after,
+.startbar
+  .startbar-menu
+  .navbar-nav
+  .nav-item
+  .nav-link[data-bs-toggle="collapse"][aria-expanded="true"]
+  i,
+.startbar
+  .startbar-menu
+  .navbar-nav
+  .nav-item
+  .nav-link[data-bs-toggle="collapse"][aria-expanded="true"]
+  span {
   color: var(--tk-sidebar-primary) !important;
 }
 
-.startbar .startbar-menu .navbar-nav .nav-item .nav-link[data-bs-toggle="collapse"][aria-expanded="true"]::before {
+.startbar
+  .startbar-menu
+  .navbar-nav
+  .nav-item
+  .nav-link[data-bs-toggle="collapse"][aria-expanded="true"]::before {
   border-color: var(--tk-sidebar-primary) !important;
   background-color: var(--tk-sidebar-primary) !important;
 }
@@ -147,12 +183,17 @@ body {
 }
 
 /* Expanded group icons */
-.startbar .startbar-menu .navbar-nav .nav-item .nav-link[data-bs-toggle="collapse"][aria-expanded="true"] i {
+.startbar
+  .startbar-menu
+  .navbar-nav
+  .nav-item
+  .nav-link[data-bs-toggle="collapse"][aria-expanded="true"]
+  i {
   color: var(--tk-sidebar-primary) !important;
 }
 
 .list-group-item.active-custom {
-  background-color: #5AC559 !important;
+  background-color: #5ac559 !important;
   color: #fff !important;
 }
 
@@ -192,145 +233,142 @@ select.form-control:disabled {
   align-items: center;
 }
 
-
-
-
 /* ================================
         Theme Cards
 ================================ */
 .theme-card {
-    transition: all 0.25s ease !important;
-    border: 1px solid #e5e7eb !important;
-    border-radius: 12px !important;
+  transition: all 0.25s ease !important;
+  border: 1px solid #e5e7eb !important;
+  border-radius: 12px !important;
 }
 .theme-card:hover {
-    transform: translateY(-4px) !important;
-    box-shadow: 0 10px 25px rgba(0,0,0,.08) !important;
-} 
+  transform: translateY(-4px) !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08) !important;
+}
 .active-theme {
-    border: 2px solid #5AC559 !important; /* primary color */
-    box-shadow: 0 0 0 3px rgba(90,197,89,.2) !important; /* primary color shadow */
-} 
+  border: 2px solid #5ac559 !important; /* primary color */
+  box-shadow: 0 0 0 3px rgba(90, 197, 89, 0.2) !important; /* primary color shadow */
+}
 .theme-preview {
-    height: 150px !important;
-    background-size: cover !important;
-    background-position: center !important;
-    border-radius: 8px !important;
-    border: 1px dashed #dee2e6 !important;
-} 
+  height: 150px !important;
+  background-size: cover !important;
+  background-position: center !important;
+  border-radius: 8px !important;
+  border: 1px dashed #dee2e6 !important;
+}
 
 /* ================================
         Settings Panel
 ================================ */
 .settings-pro {
-    background: #fff !important;
-    border-radius: 8px !important;
-    border: 1px solid #eee !important;
-    padding: 18px 12px !important;
-    height: 100% !important;
+  background: #fff !important;
+  border-radius: 8px !important;
+  border: 1px solid #eee !important;
+  padding: 18px 12px !important;
+  height: 100% !important;
 }
 
 .settings-pro-header {
-    padding: 0 10px 14px !important;
-    border-bottom: 1px solid #eee !important;
-    margin-bottom: 12px !important;
+  padding: 0 10px 14px !important;
+  border-bottom: 1px solid #eee !important;
+  margin-bottom: 12px !important;
 }
 
 .settings-pro-header h5 {
-    font-weight: 600 !important;
-    margin: 0 !important;
-    color: #222 !important;
+  font-weight: 600 !important;
+  margin: 0 !important;
+  color: #222 !important;
 }
 
 .settings-pro-section {
-    margin-bottom: 16px !important;
+  margin-bottom: 16px !important;
 }
 
 .section-title {
-    font-size: 11px !important;
-    font-weight: 600 !important;
-    color: #999 !important;
-    text-transform: uppercase !important;
-    margin: 8px 12px !important;
-    letter-spacing: 0.06em !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  color: #999 !important;
+  text-transform: uppercase !important;
+  margin: 8px 12px !important;
+  letter-spacing: 0.06em !important;
 }
 
 /* ================================
         Pro Items (Hover & Active)
 ================================ */
 .pro-item {
-    display: flex !important;
-    align-items: center !important;
-    gap: 14px !important;
-    padding: 12px 14px !important;
-    border-radius: 14px !important;
-    border: none !important;
-    background: transparent !important; /* no bg */
-    width: 100% !important;
-    color: #444 !important;
-    font-weight: 500 !important;
-    cursor: pointer !important;
-    transition: color 0.2s ease !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 14px !important;
+  padding: 12px 14px !important;
+  border-radius: 14px !important;
+  border: none !important;
+  background: transparent !important; /* no bg */
+  width: 100% !important;
+  color: #444 !important;
+  font-weight: 500 !important;
+  cursor: pointer !important;
+  transition: color 0.2s ease !important;
 }
 
 .pro-item i {
-    font-size: 15px !important;
-    width: 18px !important;
-    color: #aaa !important;
-    transition: color 0.2s ease !important;
+  font-size: 15px !important;
+  width: 18px !important;
+  color: #aaa !important;
+  transition: color 0.2s ease !important;
 }
 
 /* Hover: transparent bg, primary color text/icon */
 .pro-item:hover {
-    background: transparent !important;
-    color: #5AC559 !important;
+  background: transparent !important;
+  color: #5ac559 !important;
 }
 
 .pro-item:hover i {
-    color: #5AC559 !important;
+  color: #5ac559 !important;
 }
 
 /* Active: transparent bg, primary color text/icon */
 .pro-item.active {
-    background: transparent !important;
-    color: #5AC559 !important;
-    font-weight: 600 !important;
+  background: transparent !important;
+  color: #5ac559 !important;
+  font-weight: 600 !important;
 }
 
 .pro-item.active i {
-    color: #5AC559 !important;
+  color: #5ac559 !important;
 }
 
 /* ================================
         Dark Theme Settings Panel
 ================================ */
 html[data-bs-theme="dark"] .settings-pro {
-    background: #1f1f1f !important;
-    border: 1px solid #444 !important;
+  background: #1f1f1f !important;
+  border: 1px solid #444 !important;
 }
 
 html[data-bs-theme="dark"] .settings-pro-header h5 {
-    color: #ffffff !important;
+  color: #ffffff !important;
 }
 
 html[data-bs-theme="dark"] .section-title {
-    color: #ccc !important;
+  color: #ccc !important;
 }
 
 html[data-bs-theme="dark"] .pro-item {
-    color: #ddd !important;
+  color: #ddd !important;
 }
 
 html[data-bs-theme="dark"] .pro-item i {
-    color: #aaa !important;
+  color: #aaa !important;
 }
 
 html[data-bs-theme="dark"] .pro-item:hover,
 html[data-bs-theme="dark"] .pro-item.active {
-    color: #5AC559 !important;
+  color: #5ac559 !important;
 }
 
 html[data-bs-theme="dark"] .pro-item:hover i,
 html[data-bs-theme="dark"] .pro-item.active i {
-    color: #5AC559 !important;
+  color: #5ac559 !important;
 }

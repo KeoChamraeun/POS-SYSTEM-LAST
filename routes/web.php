@@ -11,8 +11,7 @@ use App\Livewire\Management\Expenses\ExpenseList;
 use App\Livewire\Management\Payments\PaymentList;
 use App\Livewire\Management\Products\ProductList;
 use App\Livewire\Management\Purchases\PurchaseList;
-use App\Livewire\Management\Sales\SaleList;
-use App\Livewire\Management\Staffs\StaffList;
+use App\Livewire\POS\Sales\SaleList;
 use App\Livewire\Management\StockMovements\StockMovementList;
 use App\Livewire\Management\Suppliers\SupplierList;
 use App\Livewire\Management\Units\UnitList;
@@ -34,6 +33,9 @@ Route::middleware('auth', 'route_permission', 'prevent_session_isvalid', 'check_
         Route::GET('/role', RoleList::class)->name('role-list');
         Route::GET('/role/role-apply-permission/{role_id}', RoleApplyPermission::class)->name('role.apply_permission');
     });
+    Route::prefix('pos-system')->group(function () {
+        Route::get('/sale', SaleList::class)->name('pos-system.sale');
+    });
 
 
     Route::prefix('manage')->group(function () {
@@ -46,7 +48,6 @@ Route::middleware('auth', 'route_permission', 'prevent_session_isvalid', 'check_
         Route::get('/customers', CustomerList::class)->name('manage.customers');
         Route::get('/suppliers', SupplierList::class)->name('manage.suppliers');
         Route::get('/purchases', PurchaseList::class)->name('manage.purchases');
-        Route::get('/sale', SaleList::class)->name('manage.sale');
         Route::get('/payments', PaymentList::class)->name('manage.payments');
         Route::get('/expenses', ExpenseList::class)->name('manage.expenses');
 
@@ -56,6 +57,7 @@ Route::middleware('auth', 'route_permission', 'prevent_session_isvalid', 'check_
     });
 
     Route::Get('/setting', ManageSetting::class)->name('manage-setting');
+    Route::Get('/pos-system', ManageSetting::class)->name('pos-system');
 
     Route::fallback(function () {
         return view('livewire.errors.404');
