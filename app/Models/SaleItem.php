@@ -10,22 +10,17 @@ class SaleItem extends Model
     protected $fillable = [
         'sale_id',
         'product_id',
-        'quantity',
+        'qty',
         'unit_price',
-        'discount_amount',
-        'line_total',
-        'tax_amount',
-        'batch_number',
-        'expiry_date',
+        'discount',
+        'total',
     ];
 
     protected $casts = [
-        'quantity'      => 'decimal:3',
-        'unit_price'    => 'decimal:2',
-        'discount_amount' => 'decimal:2',
-        'line_total'    => 'decimal:2',
-        'tax_amount'    => 'decimal:2',
-        'expiry_date'   => 'date',
+        'qty'        => 'decimal:2',
+        'unit_price' => 'decimal:2',
+        'discount'   => 'decimal:2',
+        'total'      => 'decimal:2',
     ];
 
     public function sale(): BelongsTo
@@ -38,9 +33,16 @@ class SaleItem extends Model
         return $this->belongsTo(Product::class);
     }
 
-    // Optional helper: effective price after discount
     public function getEffectiveUnitPriceAttribute(): float
     {
-        return $this->unit_price - ($this->discount_amount / $this->quantity);
+        $qty = (float) $this->qty;
+        $discount = (float) ($this->discount ?? 0);
+        $unitPrice = (float) $this->unit_price;
+
+        if ($qty <= 0) {
+            return $unitPrice;
+        }
+
+        return $unitPrice - ($discount / $qty);
     }
 }

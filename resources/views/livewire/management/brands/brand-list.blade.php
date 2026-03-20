@@ -48,7 +48,7 @@
                         <tr>
                             <td class="text-center">{{ $brands->firstItem() + $index }}</td>
                             <td>{{ $brand->name }}</td>
-                            <td>{{ $brand->code ? '<code>' . $brand->code . '</code>' : '—' }}</td>
+                            <td>{{ $brand->code ? '' . $brand->code . '' : '—' }}</td>
                             <td>
                                 @if($brand->status)
                                     <span class="badge bg-success">Active</span>

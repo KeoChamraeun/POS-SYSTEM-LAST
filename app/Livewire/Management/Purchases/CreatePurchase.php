@@ -126,7 +126,7 @@ class CreatePurchase extends Component
             // Product::find($item['product_id'])->increment('quantity', $item['quantity']);
         }
 
-        $this->dispatch('show-toast', type: 'success', message: 'Purchase created');
+        $this->dispatch('show-toast', type: 'success', message: __('Purchase created successfully!'));
         $this->dispatch('close-create-purchase');
         $this->dispatch('refresh-purchases');
 

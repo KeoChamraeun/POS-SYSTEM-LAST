@@ -94,7 +94,48 @@
                             @error('description') <div class="invalid-feedback">{{ __($message) }}</div> @enderror
                         </div>
 
-                        <div class="col-12">
+                        <!-- Current Stock Overview (read-only) -->
+                        <div class="col-12 mt-4">
+                            <div class="card border shadow-sm bg-white">
+                                <div class="card-header bg-light py-3">
+                                    <h6 class="mb-0 fw-semibold">
+                                        <i class="fas fa-warehouse me-2 text-primary"></i>
+                                        {{ __('Current Stock Levels') }}
+                                    </h6>
+                                    <small class="text-muted">
+                                        {{ __('To adjust stock, use the stock management section.') }}
+                                    </small>
+                                </div>
+                                <div class="card-body py-3">
+                                    @php
+                                        $stocks = \App\Models\ProductStock::where('product_id', $productId)
+                                            ->with('branch')
+                                            ->get();
+                                    @endphp
+
+                                    @if($stocks->isNotEmpty())
+                                        <ul class="list-group list-group-flush">
+                                            @foreach($stocks as $stock)
+                                                <li class="list-group-item d-flex justify-content-between align-items-center px-0 py-2">
+                                                    <div>
+                                                        <strong>{{ $stock->branch->name ?? __('Main Branch') }}</strong>
+                                                    </div>
+                                                    <span class="badge bg-info fs-6">
+                                                        {{ number_format($stock->qty, 2) }} units
+                                                    </span>
+                                                </li>
+                                            @endforeach
+                                        </ul>
+                                    @else
+                                        <p class="text-muted text-center py-3 mb-0">
+                                            {{ __('No stock recorded for this product yet.') }}
+                                        </p>
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 mt-3">
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" wire:model="status" id="statusActiveEdit">
                                 <label class="form-check-label" for="statusActiveEdit">

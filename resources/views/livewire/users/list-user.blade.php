@@ -43,8 +43,7 @@
                             <th class="text-start">{{ __('Phone') }}</th> 
                             <th class="text-start">{{ __('Date of Join') }}</th>  
                             <th class="text-start">{{__('Company')}}</th>
-                            <th class="text-start">{{ __('Active') }}</th>  
-                            <th class="text-start">{{ __('Banned') }}</th>  
+                            <th class="text-start">{{ __('Active') }} & {{ __('Banned') }}</th>  
                             <th class="text-center">{{ __('Action') }}</th> 
                         </tr>
                     </thead>

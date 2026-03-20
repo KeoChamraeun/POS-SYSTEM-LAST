@@ -2,13 +2,13 @@
     <div class="row align-items-center g-3 mb-4">
         <div class="col-md-6">
             <h3 class="mb-0 fw-bold text-dark">
-                <i class="fas fa-hand-holding-dollar me-2 text-danger"></i>
-                Expenses
+                <i class="fas fa-hand-holding-dollar me-2 text-primary"></i>
+                {{ __('Expenses') }}
             </h3>
         </div>
         <div class="col-md-6 text-md-end">
-            <button type="button" class="btn btn-danger" wire:click="openCreateExpense">
-                <i class="fas fa-plus me-2"></i> New Expense
+            <button type="button" class="btn btn-primary" wire:click="openCreateExpense">
+                <i class="fas fa-plus me-2"></i> {{ __('New Expense') }}
             </button>
         </div>
     </div>
@@ -25,14 +25,14 @@
                     <thead class="table-light">
                         <tr>
                             <th class="text-center">#</th>
-                            <th>Date</th>
-                            <th>Title</th>
-                            <th>Category</th>
-                            <th class="text-end">Amount</th>
-                            <th>Branch</th>
-                            <th>Created By</th>
-                            <th>Note</th>
-                            <th class="text-center">Actions</th>
+                            <th>{{ __('Date') }}</th>
+                            <th>{{ __('Date') }}</th>
+                            <th>{{ __('Category') }}</th>
+                            <th class="text-end">{{ __('Amount') }}</th>
+                            <th>{{ __('Branch') }}</th>
+                            <th>{{ __('Created By') }}</th>
+                            <th>{{ __('Note') }}</th>
+                            <th class="text-center">{{ __('Actions') }}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -66,7 +66,7 @@
                         @empty
                             <tr>
                                 <td colspan="9" class="text-center py-5 text-muted">
-                                    No expenses found.
+                                    {{ __('No expenses found.') }}
                                 </td>
                             </tr>
                         @endforelse

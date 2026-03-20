@@ -3,19 +3,19 @@
         <div class="col-md-6">
             <h3 class="mb-0 fw-bold text-dark">
                 <i class="fas fa-money-bill-wave me-2 text-primary"></i>
-                Payments
+                {{ __('Payments') }}
             </h3>
         </div>
         <div class="col-md-6 text-md-end">
             <button type="button" class="btn btn-primary" wire:click="openCreatePayment">
-                <i class="fas fa-plus me-2"></i> New Payment
+                <i class="fas fa-plus me-2"></i> {{ __('New Payment') }}
             </button>
         </div>
     </div>
 
     <div class="card shadow-sm border-0">
         <div class="card-header">
-            <input type="search" class="form-control w-50" placeholder="Search reference, customer, supplier..."
+            <input type="search" class="form-control w-50" placeholder="{{ __('Search...') }}"
                    wire:model.live.debounce.400ms="search">
         </div>
 
@@ -25,15 +25,15 @@
                     <thead class="table-light">
                         <tr>
                             <th class="text-center">#</th>
-                            <th>Date</th>
-                            <th>Amount</th>
-                            <th>Method</th>
-                            <th>Reference</th>
-                            <th>Customer / Supplier</th>
-                            <th>Related To</th>
-                            <th>Branch</th>
-                            <th>Created By</th>
-                            <th class="text-center">Actions</th>
+                            <th>{{ __('Date') }}</th>
+                            <th>{{ __('Amount') }}</th>
+                            <th>{{ __('Method') }}</th>
+                            <th>{{ __('Reference') }}</th>
+                            <th>{{ __('Customer / Supplier') }}</th>
+                            <th>{{ __('Related To') }}</th>
+                            <th>{{ __('Branch') }}</th>
+                            <th>{{ __('Created By') }}</th>
+                            <th class="text-center">{{ __('Actions') }}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -73,7 +73,7 @@
                         @empty
                             <tr>
                                 <td colspan="10" class="text-center py-5 text-muted">
-                                    No payments found.
+                                    {{ __('No payments found.') }}
                                 </td>
                             </tr>
                         @endforelse

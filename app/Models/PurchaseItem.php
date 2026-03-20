@@ -8,4 +8,30 @@ use Illuminate\Database\Eloquent\Model;
 class PurchaseItem extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'purchase_id',
+        'product_id',
+        'qty',
+        'cost_price',
+        'total',
+        'expiry_date',
+    ];
+
+    protected $casts = [
+        'qty'         => 'decimal:3',
+        'cost_price'  => 'decimal:2',
+        'total'       => 'decimal:2',
+        'expiry_date' => 'date',
+    ];
+
+    public function purchase()
+    {
+        return $this->belongsTo(Purchase::class);
+    }
+
+    public function product()
+    {
+        return $this->belongsTo(Product::class);
+    }
 }

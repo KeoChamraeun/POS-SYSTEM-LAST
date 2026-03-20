@@ -79,10 +79,10 @@ class DepartmentSeeder extends Seeder
                 'actions' => ['Create Staffs', 'Edit Staffs', 'Delete Staffs'],
                 'children' => [
                     [
-                        'name' => 'Sale',
-                        'slug' => '/pos-system/sale',
+                        'name' => 'POS SYSTEM',
+                        'slug' => '/pos-system/pos',
                         'type' => 'menu',
-                        'language' => ['lang' => 'kh', 'name' => 'ការលក់'],
+                        'language' => ['lang' => 'kh', 'name' => 'ប្រព័ន្ធ POS'],
                         'description' => 'Operation management',
                         'status' => true,
                         'icon' => '<i class="fas fa-shopping-cart menu-icon"></i>',
@@ -221,7 +221,17 @@ class DepartmentSeeder extends Seeder
                         'icon' => '<i class="fas fa-users menu-icon"></i>',
                         'actions' => ['Create Staffs', 'Edit Staffs', 'Delete Staffs'],
                         'children' => [],
-                    ],    
+                    ],[
+                        'name' => 'Sale',
+                        'slug' => '/manage/sale',
+                        'type' => 'menu',
+                        'language' => ['lang' => 'kh', 'name' => 'ការលក់'],
+                        'description' => 'Operation management',
+                        'status' => true,
+                        'icon' => '<i class="fas fa-shopping-cart menu-icon"></i>',
+                        'actions' => ['Create Staffs', 'Edit Staffs', 'Delete Staffs'],
+                        'children' => [],
+                    ]    
                 ],
             ],
             [

@@ -7,6 +7,8 @@ use App\Models\Product;
 use App\Models\Category;
 use App\Models\Brand;
 use App\Models\Unit;
+use App\Models\Branch;
+use App\Models\ProductStock;
 use Illuminate\Support\Str;
 
 class CreateProduct extends Component
@@ -23,6 +25,10 @@ class CreateProduct extends Component
     public string $description = '';
     public bool $status = true;
 
+    // New fields: initial stock (optional)
+    public ?int $initial_branch_id = null;
+    public float $initial_qty = 0;
+
     protected function rules(): array
     {
         return [
@@ -37,6 +43,10 @@ class CreateProduct extends Component
             'alert_qty'     => 'required|numeric|min:0',
             'description'   => 'nullable|string|max:2000',
             'status'        => 'boolean',
+
+            // Initial stock fields (both optional)
+            'initial_branch_id' => 'nullable|exists:branches,id',
+            'initial_qty'       => 'nullable|numeric|min:0',
         ];
     }
 
@@ -44,7 +54,8 @@ class CreateProduct extends Component
     {
         $this->validate();
 
-        Product::create([
+        // Create the product
+        $product = Product::create([
             'name'          => trim($this->name),
             'slug'          => Str::slug($this->name),
             'code'          => strtoupper(trim($this->code)),
@@ -59,11 +70,24 @@ class CreateProduct extends Component
             'status'        => $this->status,
         ]);
 
+        // If initial stock is provided, create the stock record
+        if ($this->initial_branch_id && $this->initial_qty > 0) {
+            ProductStock::create([
+                'branch_id'  => $this->initial_branch_id,
+                'product_id' => $product->id,
+                'qty'        => $this->initial_qty,
+            ]);
+        }
+
+        // Success feedback
         $this->dispatch('show-toast', type: 'success', message: __('Product created successfully'));
         $this->dispatch('close-create-product');
         $this->dispatch('refresh-products');
 
+        // Reset form
         $this->reset();
+        $this->initial_branch_id = null;
+        $this->initial_qty = 0;
     }
 
     public function render()
@@ -72,6 +96,7 @@ class CreateProduct extends Component
             'categories' => Category::where('status', true)->get(['id', 'name']),
             'brands'     => Brand::where('status', true)->get(['id', 'name']),
             'units'      => Unit::all(['id', 'name', 'symbol']),
+            'branches'   => Branch::where('status', true)->get(['id', 'name']),
         ]);
     }
 }

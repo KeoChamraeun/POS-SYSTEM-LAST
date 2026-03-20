@@ -93,6 +93,56 @@
                             @error('description') <div class="invalid-feedback">{{ __($message) }}</div> @enderror
                         </div>
 
+                        <!-- ── NEW: Initial Stock Section ── -->
+                        <div class="col-12 mt-4">
+                            <div class="card border shadow-sm bg-white">
+                                <div class="card-header bg-light py-3">
+                                    <h6 class="mb-0 fw-semibold">
+                                        <i class="fas fa-warehouse me-2 text-primary"></i>
+                                        {{ __('Initial Stock') }} (optional)
+                                    </h6>
+                                    <small class="text-muted">
+                                        {{ __('Set starting quantity for one branch when creating the product.') }}
+                                    </small>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row g-3 align-items-end">
+                                        <div class="col-md-6">
+                                            <label class="form-label fw-semibold small text-muted">
+                                                {{ __('Branch') }}
+                                            </label>
+                                            <select class="form-select @error('initial_branch_id') is-invalid @enderror"
+                                                    wire:model="initial_branch_id">
+                                                <option value="">{{ __('Choose') }} (optional)</option>
+                                                @foreach ($branches as $branch)
+                                                    <option value="{{ $branch->id }}">{{ $branch->name }}</option>
+                                                @endforeach
+                                            </select>
+                                            @error('initial_branch_id')
+                                                <div class="invalid-feedback">{{ __($message) }}</div>
+                                            @enderror
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <label class="form-label fw-semibold small text-muted">
+                                                {{ __('Initial Quantity') }}
+                                            </label>
+                                            <div class="input-group">
+                                                <input type="number" step="0.001" min="0" class="form-control text-end @error('initial_qty') is-invalid @enderror"
+                                                       wire:model.live.debounce.400ms="initial_qty"
+                                                       placeholder="0.00">
+                                                <span class="input-group-text">{{ __('units') }}</span>
+                                            </div>
+                                            @error('initial_qty')
+                                                <div class="invalid-feedback">{{ __($message) }}</div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End of Initial Stock Section -->
+
                         <div class="col-12">
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" wire:model="status" id="statusCreate">

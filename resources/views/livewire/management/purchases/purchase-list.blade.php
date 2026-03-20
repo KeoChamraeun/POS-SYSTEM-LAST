@@ -3,19 +3,19 @@
         <div class="col-md-6">
             <h3 class="mb-0 fw-bold text-dark">
                 <i class="fas fa-shopping-cart me-2 text-success"></i>
-                Purchases
+                {{ __('Purchases') }}
             </h3>
         </div>
         <div class="col-md-6 text-md-end">
             <button class="btn btn-success" wire:click="createNewPurchase">
-                <i class="fas fa-plus me-2"></i> New Purchase
+                <i class="fas fa-plus me-2"></i> {{ __('New Purchase') }}
             </button>
         </div>
     </div>
 
     <div class="card shadow-sm border-0">
         <div class="card-header">
-            <input type="search" class="form-control w-50" placeholder="Search invoice, supplier..." 
+            <input type="search" class="form-control w-50" placeholder="{{ __('Search...') }}" 
                    wire:model.live.debounce.500ms="search">
         </div>
 
@@ -25,14 +25,14 @@
                     <thead class="table-light">
                         <tr>
                             <th class="text-center">#</th>
-                            <th>Invoice No</th>
-                            <th>Supplier</th>
-                            <th>Date</th>
-                            <th class="text-end">Total</th>
-                            <th class="text-end">Paid</th>
-                            <th class="text-end">Due</th>
-                            <th>Payment</th>
-                            <th class="text-center">Actions</th>
+                            <th>{{ __('Invoice No') }}</th>
+                            <th>{{ __('Supplier') }}</th>
+                            <th>{{ __('Date') }}</th>
+                            <th class="text-end">{{ __('Total') }}</th>
+                            <th class="text-end">{{ __('Paid') }}</th>
+                            <th class="text-end">{{ __('Due') }}</th>
+                            <th>{{ __('Payment') }}</th>
+                            <th class="text-center">{{ __('Actions') }}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -47,11 +47,11 @@
                                 <td class="text-end fw-bold text-danger">{{ number_format($purchase->due_amount, 2) }}</td>
                                 <td>
                                     @if($purchase->payment_status === 'paid')
-                                        <span class="badge bg-success">Paid</span>
+                                        <span class="badge bg-success">{{ __('Paid') }}</span>
                                     @elseif($purchase->payment_status === 'partial')
-                                        <span class="badge bg-warning">Partial</span>
+                                        <span class="badge bg-warning">{{ __('Partial') }}</span>
                                     @else
-                                        <span class="badge bg-danger">Due</span>
+                                        <span class="badge bg-danger">{{ __('Due') }}</span>
                                     @endif
                                 </td>
                                 <td class="text-center">
@@ -64,7 +64,7 @@
                         @empty
                             <tr>
                                 <td colspan="9" class="text-center py-5 text-muted">
-                                    No purchases found
+                                    {{ __('No purchases found') }}
                                 </td>
                             </tr>
                         @endforelse

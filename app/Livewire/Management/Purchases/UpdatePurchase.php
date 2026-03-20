@@ -61,7 +61,7 @@ class UpdatePurchase extends Component
             'payment_status' => $this->getUpdatedPaymentStatus(),
         ]);
 
-        $this->dispatch('show-toast', type: 'success', message: 'Purchase updated');
+        $this->dispatch('show-toast', type: 'success', message: __('Purchase updated successfully!'));
         $this->dispatch('close-update-purchase-modal');
         $this->dispatch('refresh-purchases');
 

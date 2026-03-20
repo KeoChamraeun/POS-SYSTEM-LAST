@@ -8,6 +8,7 @@ use App\Models\Product;
 use App\Models\Category;
 use App\Models\Brand;
 use App\Models\Unit;
+use App\Models\ProductStock;
 use Illuminate\Support\Str;
 
 class UpdateProduct extends Component
