@@ -42,4 +42,15 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Company::class, 'company_id');
     }
+    public function branches()
+    {
+        return $this->belongsToMany(Branch::class, 'branch_users')
+                    ->withPivot('is_default', 'active')
+                    ->withTimestamps();
+    }
+
+    public function defaultBranch()
+    {
+        return $this->branches()->wherePivot('is_default', true)->first();
+    }
 }

@@ -6,12 +6,12 @@
             <div class="bg-white text-dark rounded-circle p-2 d-flex align-items-center justify-content-center" style="width:42px; height:42px;">
                 <i class="fas fa-cash-register fs-5"></i>
             </div>
-            <h4 class="mb-0 fw-semibold">POS Terminal</h4>
+            <h4 class="mb-0 fw-semibold">{{ __('POS System') }}</h4>
         </div>
 
         <div class="d-flex align-items-center gap-4">
             <div class="d-flex align-items-center gap-2">
-                <span class="text-white-75 small">Branch:</span>
+                <span class="text-white-75 small">{{ __('Branch') }}:</span>
                 <strong class="fs-6">{{ $branches->find($branch_id)?->name ?? '—' }}</strong>
             </div>
             <div class="badge bg-white bg-opacity-25 px-3 py-2 fw-medium">
@@ -56,7 +56,7 @@
                         <div class="col-12 text-center py-5">
                             <div class="py-5">
                                 <i class="fas fa-box-open fa-4x text-muted opacity-50 mb-4 d-block"></i>
-                                <p class="text-muted fs-5">No products found</p>
+                                <p class="text-muted fs-5">{{ __('No products found') }}</p>
                             </div>
                         </div>
                     @endforelse
@@ -80,7 +80,7 @@
                 @if(empty($cart))
                     <div class="text-center py-4">
                         <i class="fas fa-shopping-basket fa-4x text-muted opacity-25 mb-3 d-block"></i>
-                        <p class="text-muted fs-5 fw-light">Your cart is empty</p>
+                        <p class="text-muted fs-5 fw-light">{{ __('Your cart is empty') }}</p>
                     </div>
                 @else
                     @foreach($cart as $id => $item)
@@ -138,9 +138,9 @@
 
                 <div class="row g-3 mb-4">
                     <div class="col-6">
-                        <label class="form-label fw-medium small text-muted mb-1">Customer</label>
+                        <label class="form-label fw-medium small text-muted mb-1">{{ __('Customer') }}</label>
                         <select class="form-select form-select-lg shadow-sm" wire:model="customer_id">
-                            <option value="">Walk-in Customer</option>
+                            <option value="">{{ __('Walk-in Customer') }}</option>
                             @foreach($customers as $c)
                                 <option value="{{ $c->id }}">{{ $c->name }}</option>
                             @endforeach
@@ -148,21 +148,21 @@
                     </div>
 
                     <div class="col-6">
-                        <label class="form-label fw-medium small text-muted mb-1">Payment</label>
+                        <label class="form-label fw-medium small text-muted mb-1">{{ __('Payment') }}</label>
                         <select class="form-select form-select-lg shadow-sm" wire:model="payment_method">
-                            <option value="cash">Cash</option>
-                            <option value="card">Card</option>
-                            <option value="aba">ABA</option>
-                            <option value="acleda">ACLEDA</option>
-                            <option value="wing">Wing</option>
-                            <option value="bank">Bank Transfer</option>
+                            <option value="cash">{{ __('Cash') }}</option>
+                            <option value="card">{{ __('Card') }}</option>
+                            <option value="aba">{{ __('ABA') }}</option>
+                            <option value="acleda">{{ __('ACLEDA') }}</option>
+                            <option value="wing">{{ __('Wing') }}</option>
+                            <option value="bank">{{ __('Bank Transfer') }}</option>
                         </select>
                     </div>
                 </div>
 
                 <div class="row g-3 mb-4 bg-white bg-opacity-75 p-3 rounded-3 shadow-sm">
                     <div class="col-6">
-                        <div class="small text-muted fw-medium">Total</div>
+                        <div class="small text-muted fw-medium">{{ __('Total') }}</div>
                         <div class="fs-3 fw-bold text-success text-end">
                             {{ number_format($this->total, 0) }} ៛
                         </div>
@@ -179,14 +179,14 @@
 
                 <div class="row g-3 mb-4">
                     <div class="col-6">
-                        <div class="small text-primary fw-medium">Change</div>
+                        <div class="small text-primary fw-medium">{{ __('Change') }}</div>
                         <div class="fs-4 fw-bold text-primary text-end">
                             {{ number_format($this->change, 0) }} ៛
                         </div>
                     </div>
 
                     <div class="col-6">
-                        <div class="small text-danger fw-medium">Due</div>
+                        <div class="small text-danger fw-medium">{{ __('Due') }}</div>
                         <div class="fs-4 fw-bold text-danger text-end">
                             {{ number_format($this->due, 0) }} ៛
                         </div>
@@ -197,7 +197,7 @@
                     <button class="btn btn-success btn-lg fw-bold py-2 fs-7 rounded-pill shadow-lg"
                             wire:click="completeSale"
                             @if(empty($cart) || $this->paid_amount < $this->total) disabled @endif>
-                        <i class="fas fa-check-circle me-2"></i> COMPLETE SALE
+                        <i class="fas fa-check-circle me-2"></i> {{ __('COMPLETE SALE') }}
                     </button>
                 </div>
 

@@ -3,6 +3,7 @@
 namespace App\Livewire\Users;
 
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -18,21 +19,37 @@ class ListUser extends Component
 
     public function render()
     {
-        $users = User::whereNotIn('id', [1]);
+        $currentUser = Auth::user();
+
+        $query = User::whereNotIn('id', [1]) // exclude super admin if needed
+                     ->where('id', '!=', $currentUser->id); // optional: hide self
+
+        // Branch scoping for non-super-admins
+        if ($currentUser->role_id != 1) {
+            $branchIds = $currentUser->branches()->pluck('branches.id')->toArray();
+
+            if (empty($branchIds)) {
+                // User belongs to no branches → can't see anyone
+                $query->where('id', 0); // impossible condition
+            } else {
+                $query->whereHas('branches', fn($q) => $q->whereIn('branches.id', $branchIds));
+            }
+        }
 
         if ($this->search) {
-            $users = $users->where(function ($query) {
-                $query->where('name', 'ilike', '%' . $this->search . '%')
-                    ->orWhere('username', 'ilike', '%' . $this->search . '%')
-                    ->orWhere('phone', 'ilike', '%' . $this->search . '%');
+            $query->where(function ($q) {
+                $q->where('name', 'ilike', "%{$this->search}%")
+                  ->orWhere('username', 'ilike', "%{$this->search}%")
+                  ->orWhere('phone', 'ilike', "%{$this->search}%");
             });
         }
 
-        $users = $users->paginate($this->limit);
+        $users = $query->with(['role', 'branches'])
+                       ->latest()
+                       ->paginate($this->limit);
 
-        return view('livewire.users.list-user', [
-            'users' => $users
-        ])->title('Fixed Assets | Users');
+        return view('livewire.users.list-user', compact('users'))
+               ->title('Fixed Assets | Users');
     }
 
     public function updateActive($id)

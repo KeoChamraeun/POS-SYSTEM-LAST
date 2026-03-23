@@ -19,4 +19,10 @@ class Branch extends Model
     protected $casts = [
         'status' => 'boolean',
     ];
+    public function users()
+    {
+        return $this->belongsToMany(User::class, 'branch_users')
+            ->withPivot('is_default', 'active')
+            ->withTimestamps();
+    }
 }

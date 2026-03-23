@@ -15,7 +15,7 @@
 
     <div class="card shadow-sm border-0">
         <div class="card-header">
-            <input type="search" class="form-control w-50" placeholder="Search title, category, note, branch..."
+            <input type="search" class="form-control w-50" placeholder="{{ __('Search...') }}"
                    wire:model.live.debounce.500ms="search">
         </div>
 

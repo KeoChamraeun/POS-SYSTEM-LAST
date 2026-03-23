@@ -15,7 +15,7 @@
 
     <div class="card shadow-sm border-0">
         <div class="card-header pb-2">
-            <input type="search" class="form-control w-50" placeholder="Search invoice or customer..."
+            <input type="search" class="form-control w-50" placeholder="{{ __('Search...') }}"
                    wire:model.live.debounce.400ms="search">
         </div>
 
